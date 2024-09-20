@@ -30,6 +30,72 @@ class LinkedList:
 
         return True
 
+    def pop(self):
+        temp = self.head
+        pre = self.head
+        while temp.next is not None:
+            pre = temp
+            temp = temp.next
+        
+        self.tail = pre
+        self.tail.next = None
+        self.length -= 1
+
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+    
+    def pop_first(self):
+        if self.length == 0:
+            return None
+        elif self.head.next == None:
+            self.head = None
+            self.tail = None
+            self.length -= 1
+        else:
+            self.head = self.head.next
+        self.length -= 1
+
+        return True
+    
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        else:
+            temp = self.head
+            
+            ### My second solution (best one)
+            for _ in range(index):
+                temp = temp.next
+            return temp
+            
+            ### My first solution
+            # index_count = 0
+            # while temp is not None:
+            #     print(f"index: {index_count}")
+            #     print(f"value: {temp.value}")
+            #     if index_count == index:
+            #         print("**** got into index!!")
+            #         return temp.value
+            #     else:
+            #         temp = temp.next
+            #         print(f"------- next value: {temp.value}")
+
+            #         index_count += 1
+
+
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        self.length += 1
+
+        return True
+
 if __name__ == "__main__":
     
     # First example
@@ -41,4 +107,23 @@ if __name__ == "__main__":
     # Second example: append
     my_linked_list = LinkedList(1)
     my_linked_list.append(2)
-    my_linked_list.print_list()
+    my_linked_list.append(3)
+    my_linked_list.append(15)
+    my_linked_list.append(47)
+    #my_linked_list.print_list()
+
+    print(f"Get index: {my_linked_list.get(4)}")
+
+    # my_linked_list.pop()
+    # print("After pop:")
+    # my_linked_list.print_list()
+
+    # my_linked_list.pop_first()
+
+    # print("After pop first:")
+    # my_linked_list.print_list()
+
+
+    # print(f"New head: {my_linked_list.head.value}")
+
+
