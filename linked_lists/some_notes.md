@@ -58,7 +58,7 @@ def set_value(self, index, new_value):
         return False
 ```
 
-## Breakdown of set_value:
+### Breakdown of set_value:
 - **Getting the Node**:
 
 The method get(index) retrieves the node at the specified index and assigns it to temp. This node is a reference to an actual Node object in memory.
