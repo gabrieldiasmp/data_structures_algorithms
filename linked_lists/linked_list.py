@@ -92,6 +92,23 @@ class LinkedListAlgo:
             return True
         else:
             return False
+        
+    def insert(self, index, new_value):
+        new_node = Node(new_value)
+        
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        elif self.get(index) is None:
+            return False
+        else:
+            temp = self.get(index)
+
+            new_node.next = temp.next
+
+            temp.next = new_node
+            self.length += 1
+
 
     def prepend(self, value):
         new_node = Node(value)
@@ -128,17 +145,35 @@ if __name__ == "__main__":
 
     # print(f"------ New head: {my_linked_list.head.value}")
 
-    print("------ Set value example:")
+    # print("------ Set value example:")
+    # my_linked_list = None
+    # my_linked_list = LinkedListAlgo(1)
+    # my_linked_list.append(2)
+    # my_linked_list.append(3)
+    # my_linked_list.append(15)
+
+    # my_linked_list.set_value(index=2, new_value=47)
+    # my_linked_list.print_list()
+    # print(f"Head value: {my_linked_list.head.value}")
+    # print(f"Tail value: {my_linked_list.tail.value}")
+
+    print("------ Insert example:")
     my_linked_list = None
     my_linked_list = LinkedListAlgo(1)
     my_linked_list.append(2)
-    my_linked_list.append(3)
+    my_linked_list.append(30)
     my_linked_list.append(15)
 
-    my_linked_list.set_value(index=2, new_value=47)
+    my_linked_list.insert(index=2, new_value=47)
     my_linked_list.print_list()
+
+    print("------ One more insert at index 1:")
+    my_linked_list.insert(index=10, new_value=69)
+    my_linked_list.print_list()
+
     print(f"Head value: {my_linked_list.head.value}")
     print(f"Tail value: {my_linked_list.tail.value}")
+
 
 
 
