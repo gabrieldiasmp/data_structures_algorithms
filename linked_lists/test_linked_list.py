@@ -52,5 +52,20 @@ def test_popfirst_linked_list():
     my_linked_list.pop_first()
     assert my_linked_list.head.value == 2
 
+def test_set_value_linked_list():
+    my_linked_list = LinkedListAlgo(1)
+    my_linked_list.append(2)
+    my_linked_list.append(3)
+    my_linked_list.append(15)
+    my_linked_list.append(47)
+
+    my_linked_list.set_value(index=3, new_value=54)
+
+    assert my_linked_list.get(3).value == 54
+
+
+    
+
+
 if __name__ == "__main__":
     pytest.main()
