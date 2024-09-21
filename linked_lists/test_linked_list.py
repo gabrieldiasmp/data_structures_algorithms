@@ -63,6 +63,16 @@ def test_set_value_linked_list():
 
     assert my_linked_list.get(3).value == 54
 
+def test_insert_new_node_linked_list():
+    my_linked_list = LinkedListAlgo(1)
+    my_linked_list.append(2)
+    my_linked_list.append(3)
+    my_linked_list.append(47)
+
+    my_linked_list.insert(index=2, new_value=15)
+
+    assert my_linked_list.get(2).value == 15
+
 def test_insert_bigger_index_linked_list():
     my_linked_list = LinkedListAlgo(1)
     my_linked_list.append(2)

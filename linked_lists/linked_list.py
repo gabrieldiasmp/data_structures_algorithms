@@ -99,10 +99,14 @@ class LinkedListAlgo:
         if self.length == 0:
             self.head = new_node
             self.tail = new_node
+        elif index == 0:
+            return self.prepend(new_value) 
+        elif index == self.length:
+            return self.append(new_value)
         elif self.get(index) is None:
             return False
         else:
-            temp = self.get(index)
+            temp = self.get(index-1)
 
             new_node.next = temp.next
 
@@ -167,8 +171,8 @@ if __name__ == "__main__":
     my_linked_list.insert(index=2, new_value=47)
     my_linked_list.print_list()
 
-    print("------ One more insert at index 1:")
-    my_linked_list.insert(index=10, new_value=69)
+    print("------ One more insert at index 0:")
+    my_linked_list.insert(index=0, new_value=69)
     my_linked_list.print_list()
 
     print(f"Head value: {my_linked_list.head.value}")
