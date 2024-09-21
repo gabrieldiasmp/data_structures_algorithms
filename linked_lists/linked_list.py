@@ -85,19 +85,13 @@ class LinkedListAlgo:
 
     def set_value(self, index, new_value):
         
-        temp = self.head
-        new_node = Node(new_value)
+        temp = self.get(index)
 
-        index_count = 0
-        for _ in range(index):
-            if index == index_count:
-                next_node = temp.next
-                temp = new_node
-                temp.next = next_node
-            else:
-                temp = temp.next
-
-        return "success"
+        if temp:
+            temp.value = new_value
+            return True
+        else:
+            return False
 
     def prepend(self, value):
         new_node = Node(value)
@@ -114,24 +108,39 @@ class LinkedListAlgo:
 if __name__ == "__main__":
     
 
-    # Second example: append
+    # print("------ Append example:")
+    # my_linked_list = LinkedListAlgo(1)
+    # my_linked_list.append(2)
+    # my_linked_list.append(3)
+    # my_linked_list.append(15)
+    # my_linked_list.append(47)
+    # my_linked_list.print_list()
+
+    # print(f"Get index: {my_linked_list.get(4)}")
+
+    # print("------ After pop:")
+    # my_linked_list.pop()
+    # my_linked_list.print_list()
+
+    # print("------ After pop first:")
+    # my_linked_list.pop_first()
+    # my_linked_list.print_list()
+
+    # print(f"------ New head: {my_linked_list.head.value}")
+
+    print("------ Set value example:")
+    my_linked_list = None
     my_linked_list = LinkedListAlgo(1)
     my_linked_list.append(2)
     my_linked_list.append(3)
     my_linked_list.append(15)
-    my_linked_list.append(47)
+
+    my_linked_list.set_value(index=2, new_value=47)
     my_linked_list.print_list()
+    print(f"Head value: {my_linked_list.head.value}")
+    print(f"Tail value: {my_linked_list.tail.value}")
 
-    print(f"Get index: {my_linked_list.get(4)}")
 
-    print("------ After pop:")
-    my_linked_list.pop()
-    my_linked_list.print_list()
 
-    print("------ After pop first:")
-    my_linked_list.pop_first()
-    my_linked_list.print_list()
-
-    print(f"------ New head: {my_linked_list.head.value}")
 
 
