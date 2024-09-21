@@ -4,7 +4,7 @@ class Node:
         self.next = None
 
 
-class LinkedList:
+class LinkedListAlgo:
     def __init__(self, value) -> None:
         new_node = Node(value)
         self.head = new_node
@@ -83,6 +83,21 @@ class LinkedList:
 
             #         index_count += 1
 
+    def set_value(self, index, new_value):
+        
+        temp = self.head
+        new_node = Node(new_value)
+
+        index_count = 0
+        for _ in range(index):
+            if index == index_count:
+                next_node = temp.next
+                temp = new_node
+                temp.next = next_node
+            else:
+                temp = temp.next
+
+        return "success"
 
     def prepend(self, value):
         new_node = Node(value)
@@ -98,32 +113,25 @@ class LinkedList:
 
 if __name__ == "__main__":
     
-    # First example
-    # my_linked_list = LinkedList(4)
-    # print('Head:', my_linked_list.head.value)
-    # print('Tail:', my_linked_list.tail.value)
-    # print('Length:', my_linked_list.length)
 
     # Second example: append
-    my_linked_list = LinkedList(1)
+    my_linked_list = LinkedListAlgo(1)
     my_linked_list.append(2)
     my_linked_list.append(3)
     my_linked_list.append(15)
     my_linked_list.append(47)
-    #my_linked_list.print_list()
+    my_linked_list.print_list()
 
     print(f"Get index: {my_linked_list.get(4)}")
 
-    # my_linked_list.pop()
-    # print("After pop:")
-    # my_linked_list.print_list()
+    print("------ After pop:")
+    my_linked_list.pop()
+    my_linked_list.print_list()
 
-    # my_linked_list.pop_first()
+    print("------ After pop first:")
+    my_linked_list.pop_first()
+    my_linked_list.print_list()
 
-    # print("After pop first:")
-    # my_linked_list.print_list()
-
-
-    # print(f"New head: {my_linked_list.head.value}")
+    print(f"------ New head: {my_linked_list.head.value}")
 
 
