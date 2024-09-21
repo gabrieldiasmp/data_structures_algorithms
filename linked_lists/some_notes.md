@@ -42,3 +42,32 @@ def modify_node(n):
 modify_node(node)
 print(node.value)  # Outputs 20, because the object itself was modified
 ```
+
+## Example: Using `set_value`
+
+The `set_value` method demonstrates how passing objects by reference works.
+
+```python
+def set_value(self, index, new_value):
+    temp = self.get(index)
+
+    if temp:
+        temp.value = new_value
+        return True
+    else:
+        return False
+```
+
+## Breakdown of set_value:
+- **Getting the Node**:
+
+The method get(index) retrieves the node at the specified index and assigns it to temp. This node is a reference to an actual Node object in memory.
+
+- **Modifying the Node's Value**:
+
+If temp is not None (meaning a node was found), the value of this node is updated with new_value using temp.value = new_value. Since temp is a reference to the node, this change affects the original node in the linked list.
+
+- **Return Statement**:
+
+The method returns True if the value was successfully set, allowing the caller to know the operation was successful.
+This demonstrates that even though temp is a temporary variable, it directly references the node in the linked list. Therefore, modifications made through temp are reflected in the linked list structure itself.
