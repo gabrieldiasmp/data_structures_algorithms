@@ -1,4 +1,4 @@
-# 01 - LL: Find Middle Node ( ** Interview Question) 
+# 01 - LL: Find Middle Node
 Implement the `find_middle_node method` for the `LinkedList` class. 
 
 Note: this `LinkedList` implementation does not have a length member variable.
@@ -13,7 +13,7 @@ Keep in mind the following requirements:
 
 The method should only traverse the linked list once. In other words, you can only use one loop.
 
-# 02- LL: Has Loop (**Interview Question**)
+# 02 - LL: Has Loop
 
 Write a method called `has_loop` that is part of the linked list class. This method should detect if there is a cycle or loop present in the linked list using **Floyd's cycle-finding algorithm** (also known as the **"tortoise and the hare"** algorithm).
 
