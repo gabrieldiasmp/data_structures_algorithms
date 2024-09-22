@@ -113,6 +113,18 @@ class LinkedListAlgo:
             temp.next = new_node
             self.length += 1
 
+    def remove(self, index):
+        
+        temp = self.get(index)
+        if index == self.length - 1:
+            return self.pop()
+        elif index == 0:
+            return self.pop_first()
+        elif temp:
+            keep = self.get(index-1)
+            keep.next = temp.next
+            self.length -= 1
+            return True
 
     def prepend(self, value):
         new_node = Node(value)
@@ -161,22 +173,38 @@ if __name__ == "__main__":
     # print(f"Head value: {my_linked_list.head.value}")
     # print(f"Tail value: {my_linked_list.tail.value}")
 
-    print("------ Insert example:")
+    # print("------ Insert example:")
+    # my_linked_list = None
+    # my_linked_list = LinkedListAlgo(1)
+    # my_linked_list.append(2)
+    # my_linked_list.append(30)
+    # my_linked_list.append(15)
+
+    # my_linked_list.insert(index=2, new_value=47)
+    # my_linked_list.print_list()
+
+    # print("------ One more insert at index 0:")
+    # my_linked_list.insert(index=0, new_value=69)
+    # my_linked_list.print_list()
+
+    # print(f"Head value: {my_linked_list.head.value}")
+    # print(f"Tail value: {my_linked_list.tail.value}")
+
+    print("------ Remove example:")
     my_linked_list = None
     my_linked_list = LinkedListAlgo(1)
     my_linked_list.append(2)
     my_linked_list.append(30)
     my_linked_list.append(15)
 
-    my_linked_list.insert(index=2, new_value=47)
+    print("------ Before removing:")
     my_linked_list.print_list()
 
-    print("------ One more insert at index 0:")
-    my_linked_list.insert(index=0, new_value=69)
+    print("------ After removing:")
+    my_linked_list.remove(3)
     my_linked_list.print_list()
 
-    print(f"Head value: {my_linked_list.head.value}")
-    print(f"Tail value: {my_linked_list.tail.value}")
+    
 
 
 

@@ -84,5 +84,20 @@ def test_insert_bigger_index_linked_list():
 
     assert normal_length == my_linked_list.length
 
+def test_remove_linked_list():
+    my_linked_list = LinkedListAlgo(1)
+    my_linked_list.append(2)
+    my_linked_list.append(3)
+    my_linked_list.append(47)
+
+    my_linked_list.remove(3)
+    my_linked_list.remove(0)
+
+    my_linked_list.remove(-1)
+    my_linked_list.remove(30)
+
+    assert my_linked_list.tail.value == 3
+    assert my_linked_list.head.value == 2
+
 if __name__ == "__main__":
     pytest.main()
