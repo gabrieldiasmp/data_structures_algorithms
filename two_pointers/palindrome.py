@@ -17,7 +17,7 @@ def isPalindrome(s):
     upper = size_string
     lower = 0
 
-    while upper != lower:
+    while upper - lower >= 1:
         print(f"lower: {lower} | upper: {upper}")
         print(f"lower: {s_clean[lower]} | upper: {s_clean[upper]}")
         if s_clean[lower] == s_clean[upper]:
@@ -31,8 +31,10 @@ def isPalindrome(s):
     return answer
 
 if __name__ == "__main__":
-    # s = "A man, a plan, a canal: Panama" #### True
+    s = "A man, a plan, a canal: Panama" #### True
     # s = " " #### True
-    s = "A man, a plan, a canal tst: Panama" #### False
+    # s = "A man, a plan, a canal tst: Panama" #### False
+    #s = "aa"
+    #s = "ovo"
 
     print(isPalindrome(s))

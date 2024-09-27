@@ -9,3 +9,10 @@ def test_panama_string_with_modifications(string="A man, a plan, a tst canal: Pa
 def test_empty_string(string=" "):
     assert isPalindrome(string) == True
 
+def test_string_size_2(string="aa"):
+    assert isPalindrome(string) == True
+
+def test_string_size_3(string="ovo"):
+    assert isPalindrome(string) == True
+
+
