@@ -1,4 +1,3 @@
-import pytest
 from linked_list import LinkedListAlgo
 
 def test_simple_insert():
